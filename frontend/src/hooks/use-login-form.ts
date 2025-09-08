@@ -1,5 +1,7 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import z from 'zod';
 
 export const schema = z.object({
@@ -8,3 +10,14 @@ export const schema = z.object({
         message: 'Password must not be empty',
     }),
 });
+
+export const useLoginForm = () => {
+    const form = useForm<z.infer<typeof schema>>({
+        resolver: zodResolver(schema),
+        defaultValues: {},
+    });
+
+    return {
+        form,
+    };
+};
