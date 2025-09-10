@@ -1,4 +1,4 @@
-package com.namdang.blog.dto;
+package com.namdang.blog.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
