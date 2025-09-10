@@ -1,7 +1,7 @@
 package com.namdang.blog.exception;
 
 
-import com.namdang.blog.dto.ApiResponse;
+import com.namdang.blog.dto.response.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -33,7 +33,4 @@ public class GlobalExceptionHandler {
                 .status(ErrorCode.UNCATEGORIZED_EXCEPTION.getStatusCode().value())
                 .body(response);
     }
-
-
-
 }
