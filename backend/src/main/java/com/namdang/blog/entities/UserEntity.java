@@ -46,6 +46,9 @@ public class UserEntity implements UserDetails {
 
     private String avatar;
 
+    @OneToMany(mappedBy = postedUser, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BlogEntity> blogs;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
