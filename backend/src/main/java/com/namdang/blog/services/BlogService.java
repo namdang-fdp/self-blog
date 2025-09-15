@@ -74,11 +74,4 @@ public class BlogService {
 
         blogRepository.save(blog);
     }
-
-    public BlogResponse getBlogById(UUID id) {
-        BlogEntity blogEntity = blogRepository.findByBlogId(id)
-                .orElseThrow(() -> new AppException(ErrorCode.BLOG_NOT_FOUND));
-        return
-
-    }
 }
