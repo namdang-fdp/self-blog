@@ -1,6 +1,5 @@
 package com.namdang.blog.entities;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 

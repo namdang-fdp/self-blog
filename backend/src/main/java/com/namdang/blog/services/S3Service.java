@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
-import software.amazon.awssdk.services.s3.model.ObjectCannedACL;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Exception;
 
@@ -39,7 +38,6 @@ public class S3Service {
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                     .bucket(bucketName)
                     .key(key)
-                    //.acl(ObjectCannedACL.PUBLIC_READ) // file public-read
                     .build();
 
             s3Client.putObject(putObjectRequest, RequestBody.fromFile(file));
@@ -79,7 +77,6 @@ public class S3Service {
                     .bucket(bucketName)
                     .key(key)
                     .build();
-
             return s3Client.getObject(getObjectRequest);
         } catch (S3Exception e) {
             log.error("S3 download failed: {}", e.getMessage(), e);
