@@ -11,6 +11,7 @@ public enum ErrorCode {
     USER_NOT_FOUND(1002, "User not found", HttpStatus.BAD_REQUEST),
     USER_NOT_ENABLE(1003, "User not enable", HttpStatus.BAD_REQUEST),
     UNSUITABLE_IMAGE(1004, "Unsuitable image", HttpStatus.BAD_REQUEST),
+    BLOG_NOT_FOUND(1005, "Blog not found", HttpStatus.BAD_GATEWAY),
     ;
     ErrorCode(int code, String message, HttpStatusCode statusCode) {
         this.code = code;
