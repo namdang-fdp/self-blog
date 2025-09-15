@@ -56,14 +56,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
             }
         }
-
         if (jwt == null || jwt.isEmpty()) {
             filterChain.doFilter(request, response);
             return;
         }
-
         String username = jwtGenerator.getUsernameFromJWT(jwt);
-
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
