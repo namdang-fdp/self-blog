@@ -3,10 +3,10 @@ package com.namdang.blog.services;
 import com.namdang.blog.dto.GenreDTO;
 import com.namdang.blog.entities.GenresEntity;
 import com.namdang.blog.repositories.GenreRepositoy;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,9 +24,10 @@ public class GenreService {
 
     @Transactional
     public GenresEntity findOrCreate(String name) {
-        return genreRepositoy.findByNameIgnoreCase(name)
+        String normalize = name.trim();
+        return genreRepositoy.findByNameIgnoreCase(normalize)
                 .orElseGet(() -> genreRepositoy.save(
-                        GenresEntity.builder().name(name).build()
+                        GenresEntity.builder().name(normalize).build()
                 ));
     }
 
