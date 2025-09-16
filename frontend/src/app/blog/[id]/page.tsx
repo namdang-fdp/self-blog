@@ -9,6 +9,8 @@ import { ArrowLeft, Bookmark, Eye, Flag, Heart, Share2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { toast } from 'sonner';
+import Image from 'next/image';
+import { Separator } from '@/components/ui/separator';
 
 export default function BlogPost() {
     const router = useRouter();
@@ -180,6 +182,22 @@ export default function BlogPost() {
                         </div>
                     </div>
                 </div>
+                <div className="mb-8 rounded-lg overflow-hidden">
+                    <Image
+                        src="/assets/blog-login.jpg"
+                        alt={post.title}
+                        width={800}
+                        height={400}
+                        className="w-full h-64 md:h-96 object-cover"
+                    />
+                </div>
+                <div
+                    className="text-foreground leading-relaxed space-y-6"
+                    dangerouslySetInnerHTML={{
+                        __html: post.content,
+                    }}
+                />
+                <Separator className="my-8" />
             </article>
         </div>
     );
