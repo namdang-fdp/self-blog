@@ -1,7 +1,3 @@
-import {
-    UndefinedInitialDataOptions,
-    UseQueryResult,
-} from '@tanstack/react-query';
 import { getApiUrl } from './api-url';
 
 export class ApiError extends Error {
